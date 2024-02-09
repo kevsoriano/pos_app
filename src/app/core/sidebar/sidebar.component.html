@@ -1,0 +1,26 @@
+<div class="flex-container" *ngIf="!isTabletPortrait; else notTablePortrait">
+    <div class="sidebar" [class.open]="isAppDrawerOpen">
+        <div class="sidebar-menu" >
+            <a routerLink="home">Home</a>
+            <a routerLink="users">Users</a>
+            <a routerLink="products">Products</a>
+        </div>
+    </div>
+    <div class="sidebar-2" [class.open]="isAppDrawerOpen">
+        <div class="sidebar-submenu">
+            <a routerLink="home">Home</a>
+            <a routerLink="users">Users</a>
+            <a routerLink="products">Products</a>
+        </div>
+    </div>
+</div>
+
+<ng-template class="flex-container" #notTablePortrait>
+    <div class="sidebar" [class.open]="isAppDrawerOpen">
+        <div class="sidebar-menu" >
+            <a routerLink="home">Home</a>
+            <a routerLink="users">Users</a>
+            <a routerLink="products">Products</a>
+        </div>
+    </div>
+</ng-template>

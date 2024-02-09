@@ -1,0 +1,15 @@
+<div class="header">
+    <div class="hamburger" [class.open]="isAppDrawerOpen" (click)="toggleNav()" *ngIf="isPhonePortrait">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="brand">
+      <a routerLink="/">
+        <img class="logo" src="../assets/icons/logo.png" alt="logo">
+        <h3>Company</h3>
+      </a>
+    </div>
+    <ul class="nav-links-top">
+      <li *ngIf="!isAuthenticated"><a routerLink='/login'>Login</a></li>
+      <li *ngIf="isAuthenticated" (click)="onLogout()"><a>Logout</a></li>
+    </ul>
+</div>

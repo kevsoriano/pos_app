@@ -1,0 +1,89 @@
+<table class="table">
+  <thead>
+    <tr class="header-row">
+      <th class="header" *ngFor="let header of tableColumns;">{{ header }}</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let record of tableData; let i = index">
+    <tr class="table-row-not-expanded" >
+      <td class="cell" (click)="record.isExpanded = !record.isExpanded" *ngFor="let property of record | keyvalue: originalOrder | slice:0:keySize">
+        <div>{{property.value}}</div>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary">
+          <fa-icon [icon]="['far', 'eye']" size="sm"></fa-icon>
+        </button>
+        <button type="button" class="btn btn-success">
+          <fa-icon [icon]="['far', 'edit']" size="sm"></fa-icon>
+        </button>
+        <button type="button" class="btn btn-danger">
+          <fa-icon [icon]="['far', 'trash-alt']" size="sm"></fa-icon>
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td *ngIf="record.isExpanded" class="expanded-panel" colspan="5">
+        <div>
+          <p>expanded content</p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- reference only -->
+<!-- <table class="table">
+  <tr class="header-row">
+    <th class="header" *ngFor="let header of headers;">{{ header }}</th>
+  </tr>
+  <tr
+    class="table-row-not-expanded"
+    *ngFor="let covenant of covenants; let i = index"
+  >
+    <td class="cell" (click)="covenant.isExpanded = !covenant.isExpanded" *ngFor="let property of covenant">
+      <div>property</div>
+      <div *ngIf="covenant.isExpanded" class="expanded-panel">
+        <div class="table-container">
+          <table class="table">
+            <tr class="header-row">
+              <th class="header">Header 1</th>
+              <th class="header">Header 2</th>
+              <th class="header">Header 3</th>
+            </tr>
+            <tr class="table-row">
+              <td class="cell">11</td>
+              <td class="cell">22</td>
+              <td class="cell">33</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table> -->
+<!-- 2nd reference -->
+<!-- <table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Queue Id</th>
+            <th scope="col">Application</th>
+            <th scope="col">Type</th>
+            <th scope="col">Start Time</th>
+            <th scope="col">End Time</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let record of queueRecords; let i = index">
+        <tr>
+            <td>{{ record.id }}</td>
+            <td>{{ record.application }}</td>
+            <td>{{ record.queueType }}</td>
+            <td>{{ record.startTime }}</td>
+            <td>{{ record.endTime }}</td>
+            <td><button type="button" class="btn btn-dark" (click)="i=!i">View</button></td>
+            <td><button type="button" class="btn btn-danger">Remove</button></td>
+        </tr>
+        <tr *ngIf="!i">
+            <app-expansion [queueId]="record.id"></app-expansion>
+        </tr>
+    </tbody>
+</table> -->

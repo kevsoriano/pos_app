@@ -1,0 +1,12 @@
+<h2>Users</h2>
+<div>
+    <button type="button" (click)="addUser()" class="btn btn-primary">Add User</button>
+</div>
+<app-table
+    [tableColumns]="tableColumns"
+    [tableData]="tableData"    
+></app-table>
+<app-pagination
+    [totalPages]="totalPages" 
+    (pageChanged)="onPageChanged($event)" 
+    (pageSizeChanged)="onPageSizeChanged($event)"></app-pagination>
